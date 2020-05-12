@@ -72,9 +72,9 @@
 
 #### 4.6，高性能、超大规模的宿主机部署
 
+<img src="https://images.gitee.com/uploads/images/2020/0513/004910_e0ddd393_7530643.png"  />
 
 
-<img src="/Users/wangjunxiang/Library/Application Support/typora-user-images/image-20200422141826575.png" alt="image-20200422141826575" style="zoom: 25%;" />
 
 
 
@@ -84,7 +84,9 @@
 
 ### 5,docker的基本组成
 
-<img src="/Users/wangjunxiang/Library/Application Support/typora-user-images/image-20200416112445927.png" alt="image-20200416112445927" style="zoom:33%;" />
+![](https://images.gitee.com/uploads/images/2020/0513/005001_c28e1057_7530643.png)
+
+
 
 ----
 
@@ -94,11 +96,15 @@ C/S架构
 
 1，客户端访问服务端
 
-<img src="/Users/wangjunxiang/Library/Application Support/typora-user-images/image-20200416113402587.png" alt="image-20200416113402587" style="zoom:33%;" />
+![](https://images.gitee.com/uploads/images/2020/0513/005026_287df315_7530643.png)
+
+
 
 2，Remote API (自己写程序调用api，自己的程序与docker服务端通信)
 
-<img src="/Users/wangjunxiang/Library/Application Support/typora-user-images/image-20200416113422681.png" alt="image-20200416113422681" style="zoom:33%;" />
+
+
+![](https://images.gitee.com/uploads/images/2020/0513/005044_4ddffe53_7530643.png)
 
 
 
@@ -122,7 +128,7 @@ C/S架构
 
 以上条件的文件系统，称为镜像
 
-<img src="/Users/wangjunxiang/Library/Application Support/typora-user-images/image-20200416110941308.png" alt="image-20200416110941308" style="zoom:33%;" />
+![](https://images.gitee.com/uploads/images/2020/0513/005107_e84fcd0e_7530643.png)
 
 
 
@@ -136,7 +142,7 @@ C/S架构
 
 + 写实复制：容器在启动时，会在镜像最顶层增加一个读写层文件系统(可写层)，docker中运行的程序 在此层执行，容器第一次启动，这个读写层是空的，当文件发生变化都会应用到这一层，比如要修改一个文件，会从可写层下面的只读层复制到该可写层，该文件只读版本依然存在只是被隐藏起来
 
-  <img src="/Users/wangjunxiang/Library/Application Support/typora-user-images/image-20200416111821716.png" alt="image-20200416111821716" style="zoom:33%;" />
+  ![](https://images.gitee.com/uploads/images/2020/0513/005127_fbf9cf00_7530643.png)
 
 
 
@@ -1164,7 +1170,7 @@ wangjunxiang@My_MacBook_pro_2018  ~  curl http://127.0.0.1:32773
 
 方式2:
 
-<img src="/Users/wangjunxiang/Library/Application Support/typora-user-images/image-20200416195829771.png" alt="image-20200416195829771" style="zoom: 50%;" />
+<img src="https://images.gitee.com/uploads/images/2020/0513/005224_f02279bf_7530643.png" style="zoom:50%;" />
 
 
 
@@ -1627,7 +1633,7 @@ https://registry.hub.docker.com/_/registry
 
 就能在本地 push和pull
 
-![image-20200422220009565](/Users/wangjunxiang/Library/Application Support/typora-user-images/image-20200422220009565.png)
+<img src="https://images.gitee.com/uploads/images/2020/0513/005301_4ad21e90_7530643.png" style="zoom:50%;" />
 
 
 
@@ -1921,13 +1927,13 @@ wangjunxiang@My_MacBook_pro_2018  /tmp/dockerfile/df1  curl http://127.0.0
 
 ### 4.1,docker C/S模式
 
-<img src="/Users/wangjunxiang/Library/Application Support/typora-user-images/image-20200419144558187.png" alt="image-20200419144558187" style="zoom:33%;" />
+<img src="https://images.gitee.com/uploads/images/2020/0513/005026_287df315_7530643.png" style="zoom: 67%;" />
 
 
 
 ### 4.2,docker Remote API
 
-<img src="/Users/wangjunxiang/Library/Application Support/typora-user-images/image-20200419150820313.png" alt="image-20200419150820313" style="zoom:33%;" />
+<img src="https://images.gitee.com/uploads/images/2020/0513/005044_4ddffe53_7530643.png" style="zoom:67%;" />
 
 RESTful风格API,自己编写程序调用 API 与服务端交互
 
@@ -2834,7 +2840,7 @@ docker run -it wyzerg/ubuntu-stress
 
 ### 2) docker0 虚拟网桥
 
-<img src="/Users/wangjunxiang/Library/Application Support/typora-user-images/image-20200420204923461.png" alt="image-20200420204923461" style="zoom: 25%;" />
+
 
 #### 虚拟网桥docker0的特点
 
@@ -2847,7 +2853,7 @@ docker run -it wyzerg/ubuntu-stress
 + MAC: 02:42:ac:11:00:00 到 02:42:ac:11:ff:ff
 + 总共提供了 65534个地址
 
-<img src="/Users/wangjunxiang/Library/Application Support/typora-user-images/image-20200420205600462.png" alt="image-20200420205600462" style="zoom:25%;" />
+<img src="https://images.gitee.com/uploads/images/2020/0513/005346_70a87750_7530643.png" style="zoom: 50%;" />
 
 ### 3) 命名空间
 
@@ -2882,7 +2888,7 @@ docker run -it wyzerg/ubuntu-stress
 
 将2个namespace(test1、test2)互相连通起来，需要再2个Namespace新建接口(类似给他们2个之间插网线)，有个虚拟veth技术(创建一对veth)，分别放到test1和test2的namespace中，并且给2个veth分别配置ip地址，就会互通
 
-![image-20200426155345611](/Users/wangjunxiang/Library/Application Support/typora-user-images/image-20200426155345611.png)
+![](https://images.gitee.com/uploads/images/2020/0513/005429_d757d999_7530643.png)
 
 ```shell
 #查看本机的ip link
@@ -3119,13 +3125,13 @@ docker0		8000.000000000000	no		veth1de1e7e
 
 容器内虚拟的 eth0@if7 和 主机的docker0中的 vethb0417fc@if6 进行通信，从而实现容器和主机的通信
 
-![image-20200426180126909](/Users/wangjunxiang/Library/Application Support/typora-user-images/image-20200426180126909.png)
+<img src="https://images.gitee.com/uploads/images/2020/0513/005504_790baff7_7530643.png" style="zoom:50%;" />
 
 #### 结论-容器访问外网
 
 主机可以通过eth0访问外网，容器通过iptables实现：docker0的bridge，通过NAT转换成eth0的地址，通过eth0 主机的数据包去访问外网
 
-![image-20200426180339756](/Users/wangjunxiang/Library/Application Support/typora-user-images/image-20200426180339756.png)
+<img src="https://images.gitee.com/uploads/images/2020/0513/005520_2d88096d_7530643.png" style="zoom:50%;" />
 
 
 
@@ -3189,7 +3195,7 @@ NETWORK ID          NAME                DRIVER              SCOPE
 f0e8467b43fa        none                null                local
 ```
 
-![image-20200426194421342](/Users/wangjunxiang/Library/Application Support/typora-user-images/image-20200426194421342.png)
+<img src="https://images.gitee.com/uploads/images/2020/0513/005543_f7b4de4b_7530643.png" style="zoom: 50%;" />
 
 ```shell
 ################ 指定新建的容器 链接 新建的bridge ################
@@ -3375,9 +3381,9 @@ if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
 ```
 
-<img src="/Users/wangjunxiang/Library/Application Support/typora-user-images/image-20200426234306386.png" alt="image-20200426234306386" style="zoom:150%;" />
 
 
+<img src="https://images.gitee.com/uploads/images/2020/0513/005617_db35c01f_7530643.png" style="zoom:50%;" />
 
 
 
@@ -3486,7 +3492,7 @@ Hello Container World! I have been seen 7 times and my hostname is 67059d0ae3a5.
 
 ### 7) 多宿主机通信 (overlay)
 
-![image-20200427144248712](/Users/wangjunxiang/Library/Application Support/typora-user-images/image-20200427144248712.png)
+<img src="https://images.gitee.com/uploads/images/2020/0513/005642_e0a3e121_7530643.png" style="zoom:50%;" />
 
 #### 安装分布式存储 etcd
 
@@ -3705,7 +3711,7 @@ c2ca34abec2a        none                null                local
 
 + 支持第三方存储方案，比如远程NAS，aws
 
-<img src="/Users/wangjunxiang/Library/Application Support/typora-user-images/image-20200428175857184.png" alt="image-20200428175857184" style="zoom: 25%;" />
+<img src="https://images.gitee.com/uploads/images/2020/0513/005727_2ce3f194_7530643.png" style="zoom:50%;" />
 
 
 
@@ -4399,7 +4405,7 @@ docker-compose  up  --scale 可以水平扩展同一个容器的数量
 
 
 
-![image-20200501234109374](/Users/wangjunxiang/Library/Application Support/typora-user-images/image-20200501234109374.png)
+<img src="https://images.gitee.com/uploads/images/2020/0513/005756_43fd75a2_7530643.png" style="zoom:50%;" />
 
 
 
@@ -4545,7 +4551,7 @@ Hello Container World! I have been seen 10 times and my hostname is 1c0600b44ae1
 
 #### 架构模型
 
-![image-20200502000817310](/Users/wangjunxiang/Library/Application Support/typora-user-images/image-20200502000817310.png)
+<img src="https://images.gitee.com/uploads/images/2020/0513/005825_0a92f8fc_7530643.png" style="zoom:33%;" />
 
 + voting App web服务，负责获取投票结果数据
 + result app web服务，负责实时显示当前候选人得票情况，从PG数据库中获取数据
